@@ -103,6 +103,9 @@ return packer.startup(function(use)
   -- line indentation guide
   use("lukas-reineke/indent-blankline.nvim")
 
+  use("goolord/alpha-nvim")
+
+
     if packer_bootstrap then
     require("packer").sync()
   end
