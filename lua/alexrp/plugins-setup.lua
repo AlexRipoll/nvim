@@ -100,6 +100,8 @@ return packer.startup(function(use)
   -- integrated terminal
   use("akinsho/toggleterm.nvim")
 
+  -- line indentation guide
+  use("lukas-reineke/indent-blankline.nvim")
 
     if packer_bootstrap then
     require("packer").sync()
