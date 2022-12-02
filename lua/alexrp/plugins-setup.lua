@@ -94,7 +94,8 @@ return packer.startup(function(use)
     end,
   })
 
-
+  -- git integration
+  use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
     if packer_bootstrap then
     require("packer").sync()
