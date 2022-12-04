@@ -122,6 +122,9 @@ return packer.startup(function(use)
 	-- bufferline with tabpage
 	use("akinsho/bufferline.nvim")
 
+	-- word match highlighting
+	use("RRethy/vim-illuminate")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
