@@ -116,7 +116,11 @@ return packer.startup(function(use)
 	-- keybinds popup display
 	use("folke/which-key.nvim")
 
+	-- autopairs
 	use("windwp/nvim-autopairs")
+
+	-- bufferline with tabpage
+	use("akinsho/bufferline.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
