@@ -1,23 +1,15 @@
--- import mason plugin safely
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-  return
-end
+local servers = {
+	"sumneko_lua",
+	"cssls",
+	"html",
+	"tsserver",
+	"pyright",
+	"bashls",
+	"jsonls",
+	"yamlls",
+}
 
--- import mason-lspconfig plugin safely
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-  return
-end
-
--- import mason-null-ls plugin safely
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-  return
-end
-
--- enable mason
-mason.setup({
+local settings = {
     ui = {
         icons = {
             package_installed = "✓",
@@ -25,49 +17,36 @@ mason.setup({
             package_uninstalled = "✗"
         }
     },
+	log_level = vim.log.levels.INFO,
+	max_concurrent_installers = 4,
+}
+
+require("mason").setup(settings)
+require("mason-lspconfig").setup({
+	ensure_installed = servers,
+	automatic_installation = true,
 })
 
-mason_lspconfig.setup({
-  -- list of servers for mason to install
-  ensure_installed = {
-    "tsserver",
-    "html",
-    "cssls",
-    "sumneko_lua",
-    "emmet_ls",
-  },
-  -- auto-install configured servers (with lspconfig)
-  automatic_installation = true, -- not the same as ensure_installed
-})
---
--- mason_null_ls.setup({
---   -- list of formatters & linters for mason to install
---   ensure_installed = {
---     "prettier", -- ts/js formatter
---     "stylua", -- lua formatter
---     "eslint_d", -- ts/js linter
---     "gofmt",
---     "rustfmt",
---   },
---   -- auto-install configured formatters & linters (with null-ls)
---   automatic_installation = true,
---     automatic_setup =true,
--- })
---
--- mason_null_ls.setup_handlers() -- If `automatic_setup` is true.
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+	return
+end
 
-local null_ls = require("null-ls")
+local opts = {}
 
-null_ls.setup({
-    sources = {
-        -- all sources go here.
-        null_ls.builtins.formatting.gofmt,
-        null_ls.builtins.diagnostics.golangci_lint,
-    }
-})
+for _, server in pairs(servers) do
+	opts = {
+		on_attach = require("alexrp.plugins.lsp.handlers").on_attach,
+		capabilities = require("alexrp.plugins.lsp.handlers").capabilities,
+	}
 
-mason_null_ls.setup({
-    ensure_installed = nil,
-    automatic_installation = true,
-    automatic_setup = true,
-})
+	server = vim.split(server, "@")[1]
+
+	local require_ok, conf_opts = pcall(require, "alexrp.plugins.lsp.settings." .. server)
+	if require_ok then
+		opts = vim.tbl_deep_extend("force", conf_opts, opts)
+	end
+
+	lspconfig[server].setup(opts)
+end
+
