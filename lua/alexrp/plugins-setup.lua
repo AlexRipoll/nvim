@@ -43,6 +43,9 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
 	use("folke/tokyonight.nvim") -- preferred colorscheme
+	use("marko-cerovac/material.nvim")
+	use("navarasu/onedark.nvim")
+	use("EdenEast/nightfox.nvim")
 
 	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
