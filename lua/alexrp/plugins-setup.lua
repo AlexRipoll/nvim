@@ -128,6 +128,9 @@ return packer.startup(function(use)
 	-- word match highlighting
 	use("RRethy/vim-illuminate")
 
+	-- scrollbar
+	use("petertriho/nvim-scrollbar")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
