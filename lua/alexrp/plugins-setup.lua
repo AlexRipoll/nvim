@@ -122,6 +122,9 @@ return packer.startup(function(use)
 	-- autopairs
 	use("windwp/nvim-autopairs")
 
+	-- surroundiing in pairs
+	use("kylechui/nvim-surround")
+
 	-- bufferline with tabpage
 	use("akinsho/bufferline.nvim")
 
