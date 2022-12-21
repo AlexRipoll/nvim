@@ -1,4 +1,3 @@
-
 local opt = vim.opt -- for conciseness
 
 -- line numbers
@@ -6,7 +5,7 @@ opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
-opt.tabstop = 4 -- 4 spaces for tabs 
+opt.tabstop = 4 -- 4 spaces for tabs
 opt.shiftwidth = 4 -- 4 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
@@ -40,3 +39,9 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+
+opt.scrolloff = 8
+-- opt.swap = false
+-- opt.backup = false
+-- opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- allow to undo changes that have been registered in the directory
+-- opt.undofile = true --
