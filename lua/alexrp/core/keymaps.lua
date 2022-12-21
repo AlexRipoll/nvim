@@ -53,9 +53,6 @@ keymap.set("v", "p", '"_dP')
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
 
--- keymap.set("v", "<C-j>", ":m '>+1<CR>'gv=gv")
--- keymap.set("v", "<C-k>", ":m '<-2<CR>'gv=gv")
-
 -- Move text up and down
 keymap.set("v", "<A-j>", ":m .+1<CR>==")
 keymap.set("v", "<A-k>", ":m .-2<CR>==")
