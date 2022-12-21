@@ -1,1 +1,1 @@
-require("alexrp.core.colorschemes.tokyonight")
+require("alexrp.core.colorschemes.onedark")
