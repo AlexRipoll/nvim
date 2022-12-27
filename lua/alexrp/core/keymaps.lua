@@ -40,6 +40,12 @@ keymap.set("n", "<C-l>", "<C-w>l")
 keymap.set("n", "<S-l>", ":bnext<CR>")
 keymap.set("n", "<S-h>", ":bprevious<CR>")
 
+-- Vertical movement
+keymap.set("n", "<C-u>", "<C-u>zz") -- move coursor half page up and recenter
+keymap.set("n", "<C-d>", "<C-d>zz") -- move coursor half page down and recenter
+keymap.set("n", "<C-b>", "<C-b>zz")
+keymap.set("n", "<C-f>", "<C-f>zz")
+
 -- Clear highlights
 keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>")
 
