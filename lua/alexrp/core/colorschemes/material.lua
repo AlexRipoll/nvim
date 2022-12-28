@@ -36,7 +36,7 @@ require("material").setup({
 		"nvim-cmp",
 		-- "nvim-navic",
 		"nvim-tree",
-		-- "nvim-web-devicons",
+		"nvim-web-devicons",
 		-- "sneak",
 		"telescope",
 		-- "trouble",
@@ -52,11 +52,11 @@ require("material").setup({
 	},
 
 	high_visibility = {
-		lighter = false, -- Enable higher contrast text for lighter style
+		lighter = true, -- Enable higher contrast text for lighter style
 		darker = true, -- Enable higher contrast text for darker style
 	},
 
-	lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
+	lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
 
 	async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
 
@@ -71,4 +71,4 @@ if not status then
 	return
 end
 
-vim.g.material_style = "deep ocean"
+vim.g.material_style = "darker"

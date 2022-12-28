@@ -1,1 +1,1 @@
-require("alexrp.core.colorschemes.onedark")
+require("alexrp.core.colorschemes.material")
