@@ -84,7 +84,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -108,7 +108,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',          opts = {} },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -122,9 +122,12 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = '[G]it go to [P]revious Hunk' })
-        vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]it go to [N]ext Hunk' })
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[G]it [P]review Hunk' })
+        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
+          { buffer = bufnr, desc = '[G]it go to [P]revious Hunk' })
+        vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk,
+          { buffer = bufnr, desc = '[G]it go to [N]ext Hunk' })
+        vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk,
+          { buffer = bufnr, desc = '[G]it [P]review Hunk' })
       end,
     },
   },
@@ -137,16 +140,15 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'auto'
   --   end,
   -- },
-  
+
   {
     'savq/melange-nvim',
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'melange'
     end,
-
   },
-    
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -155,8 +157,8 @@ require('lazy').setup({
       options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -171,18 +173,20 @@ require('lazy').setup({
         }
       },
       sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff' },
-        lualine_c = {{'filename', path = 4}},
-        lualine_x = {{'diagnostics', symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'}}, 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff' },
+        lualine_c = { { 'filename', path = 4 } },
+        lualine_x = { { 'diagnostics', symbols = { error = '✖', warn = '', info = '', hint = '' } },
+          'fileformat',
+          'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
       },
@@ -190,8 +194,7 @@ require('lazy').setup({
       winbar = {},
       inactive_winbar = {},
       extensions = {}
-
-          },
+    },
   },
 
   {
@@ -206,7 +209,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',         opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -243,7 +246,7 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
+  -- require 'plugins.lsp.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -251,7 +254,8 @@ require('lazy').setup({
   --    up-to-date with whatever is in the kickstart repo.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  { import = 'custom.plugins' },
+  { import = 'plugins' },
+  { import = 'plugins.lsp' },
 }, {})
 
 -- [[ Setting options ]]
@@ -307,17 +311,20 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- ["<leaser>h"] = { ":noh <CR>", "clear highlights" },
-  vim.keymap.set('n', '<leader>rrnn', '<cmd> set rnu! <CR>', { desc = 'toggle relative number' })
-  vim.keymap.set('n', ';', ':', { desc = 'enter command mode' })
+vim.keymap.set('n', '<leader>rrnn', '<cmd> set rnu! <CR>', { desc = 'toggle relative number' })
+vim.keymap.set('n', ';', ':', { desc = 'enter command mode' })
 
-		-- vertical movement
-  vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll half page up and recenter' })
-  vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll half page down and recenter' })
-  vim.keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'scroll page forward and recenter' })
-  vim.keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'scroll page backward and recenter' })
+-- vertical movement
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll half page up and recenter' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll half page down and recenter' })
+vim.keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'scroll page forward and recenter' })
+vim.keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'scroll page backward and recenter' })
 
-		-- window management
-  vim.keymap.set('n', '<leader>sx', ':close<CR>', { desc = 'close current split window' })
+-- tree explorer
+vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'toggle tree explorer' })
+
+-- window management
+vim.keymap.set('n', '<leader>sx', ':close<CR>', { desc = 'close current split window' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -343,41 +350,6 @@ require('telescope').setup {
   },
 }
 
-local function my_on_attach(bufnr)
-  local api = require "nvim-tree.api"
-
-  local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
-
-  -- default mappings
-  api.config.mappings.default_on_attach(bufnr)
-
-  -- custom mappings
-  vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeToggle <CR>', { desc = 'togle tree explorer' })
-  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
-  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-end
-
-require("nvim-tree").setup({
-  sort_by = "case_sensitive",
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-  on_attach = my_on_attach,
-})
--- pass to setup along with your other options
-require("nvim-tree").setup {
-  ---
-  on_attach = my_on_attach,
-  ---
-}
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -404,7 +376,8 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'solidity', 'yaml', 'toml', 'markdown', 'make', 'json', 'gitignore' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'solidity',
+    'yaml', 'toml', 'markdown', 'make', 'json', 'gitignore' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -535,7 +508,6 @@ local servers = {
   yamlls = {},
   tamplo = {},
   marksman = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
