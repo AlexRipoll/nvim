@@ -323,6 +323,8 @@ vim.keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'scroll page backward and recen
 -- tree explorer
 vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'toggle tree explorer' })
 
+vim.keymap.set('n', '<leader>gs', ':Neotree git_status float toggle<CR>', { desc = 'show git status' })
+
 -- window management
 vim.keymap.set('n', '<leader>sx', ':close<CR>', { desc = 'close current split window' })
 
