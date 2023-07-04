@@ -259,6 +259,7 @@ require('lazy').setup({
   { import = 'plugins.lsp' },
 }, {})
 
+require 'config.options'
 require 'config.keymaps'
 
 -- [[ Setting options ]]
