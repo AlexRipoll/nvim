@@ -1,3 +1,6 @@
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -5,6 +8,7 @@ local opt = vim.opt
 
 opt.autoindent = true          -- copy indent from current line when starting new one
 opt.autowrite = true           -- Enable auto write
+opt.breakindent = true         -- Enable break indent
 opt.clipboard = "unnamedplus"  -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 3           -- Hide * markup for bold and italic
@@ -14,6 +18,7 @@ opt.expandtab = true           -- Use spaces instead of tabs
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
+opt.hlsearch = true        -- Set highlight on search
 opt.ignorecase = true      -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.iskeyword:append("-")  -- consider string-string as whole word
@@ -39,6 +44,7 @@ opt.splitbelow = true      -- Put new windows below current
 opt.splitright = true      -- Put new windows right of current
 opt.tabstop = 4            -- Number of spaces tabs count for
 opt.termguicolors = true   -- True color support
+opt.timeout = true
 opt.timeoutlen = 300
 opt.undofile = true
 opt.undolevels = 10000
