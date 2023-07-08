@@ -77,7 +77,6 @@ map('n', '<leader>fm', vim.lsp.buf.format, { desc = "lsp formatting" })
 --
 -- TELESCOPE
 -- See `:help telescope.builtin`
-map('n', '<leader>sr', require('telescope.builtin').oldfiles, { desc = '[S]earch [R]ecently opened files' })
 map('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 map('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -87,18 +86,19 @@ map('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
+map('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Search [D]iagnostics' })
+map('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search [F]iles' })
+map('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Search by [G]rep' })
+map('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Search [H]elp' })
+map('n', '<leader>fr', require('telescope.builtin').oldfiles, { desc = 'Search [R]ecently opened files' })
+map('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
 map('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-map('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-map('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 --
 -- DIAGNOSTICS
-map('n', 'gp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-map('n', 'gn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 map('n', 'gl', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+map('n', 'gn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+map('n', 'gp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 map('n', 'gq', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 
