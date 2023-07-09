@@ -22,7 +22,7 @@ return {
       },
       on_attach = function(bufnr)
         vim.keymap.set('n', '<leader>gb', require('gitsigns').blame_line,
-          { buffer = bufnr, desc = 'Git go to previous hunk' })
+          { buffer = bufnr, desc = 'Git blame line' })
         vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
           { buffer = bufnr, desc = 'Git go to previous hunk' })
         vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk,
