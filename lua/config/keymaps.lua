@@ -21,9 +21,9 @@ map('n', '<C-f>', '<C-f>zz', { desc = 'scroll page forward and recenter' })
 map('n', '<C-b>', '<C-b>zz', { desc = 'scroll page backward and recenter' })
 
 -- tree explorer
-map('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'toggle tree explorer' })
+map('n', '<leader>e', ':Neotree toggle reveal<CR>', { desc = 'toggle tree explorer' })
 
-map('n', '<leader>gs', ':Neotree git_status float toggle<CR>', { desc = 'show git status' })
+-- map('n', '<leader>gs', ':Neotree git_status float toggle<CR>', { desc = 'show git status' })
 
 -- window management
 map('n', '<leader>sx', ':close<CR>', { desc = 'close current split window' })
@@ -92,7 +92,10 @@ map('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Search 
 map('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Search [H]elp' })
 map('n', '<leader>fr', require('telescope.builtin').oldfiles, { desc = 'Search [R]ecently opened files' })
 map('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
+map('n', '<leader>gc', require('telescope.builtin').git_commits, { desc = 'Search Git commits' })
 map('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+map('n', '<leader>gs', require('telescope.builtin').git_status, { desc = 'Search Git files' })
+
 
 --
 -- DIAGNOSTICS
@@ -119,13 +122,13 @@ map({ "n", "t" }, "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", { desc
 
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+  map("t", "<esc><esc>", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
+  map("t", "jk", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
+  map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+  map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
+  map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
+  map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+  map('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
@@ -187,16 +190,6 @@ map("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
---
--- -- Terminal Mappings
--- map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
--- map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
--- map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
--- map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
--- map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
--- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
--- map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
---
 -- -- windows
 -- map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
 -- map("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
