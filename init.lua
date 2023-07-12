@@ -25,5 +25,9 @@ require 'config.autocmds'
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+
+vim.g.material_style = "darker"
+vim.cmd 'colorscheme material'
+-- vim.g.material_style = "deep-ocean"
 -- -- The line beneath this is called `modeline`. See `:help modeline`
 -- -- vim: ts=2 sts=2 sw=2 et
