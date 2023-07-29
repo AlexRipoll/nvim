@@ -22,6 +22,7 @@ map('n', '<C-b>', '<C-b>zz', { desc = 'scroll page backward and recenter' })
 
 -- tree explorer
 map('n', '<leader>e', ':Neotree toggle reveal<CR>', { desc = 'toggle tree explorer' })
+map('n', '<leader>n', ':Neotree reveal<CR>', { desc = 'reveal file in tree explorer' })
 
 -- map('n', '<leader>gs', ':Neotree git_status float toggle<CR>', { desc = 'show git status' })
 
@@ -207,3 +208,10 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 --   "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
 --   { desc = "Redraw / clear hlsearch / diff update" }
 -- )
+
+
+
+--
+-- GLOW keymaps
+--
+map('n', '<leader>p', '<Cmd>Glow<CR>', { desc = 'preview markdown in current buffer' })
