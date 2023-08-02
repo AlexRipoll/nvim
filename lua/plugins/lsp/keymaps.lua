@@ -1,20 +1,20 @@
 local M = {}
 
 local keymaps = {
-  { '<leader>rn', vim.lsp.buf.rename,                                                      '[R]e[n]ame' },
-  { '<leader>ca', vim.lsp.buf.code_action,                                                 '[C]ode [A]ction' },
-  { 'gd',         vim.lsp.buf.definition,                                                  '[G]oto [D]efinition' },
-  { 'gr',         require('telescope.builtin').lsp_references,                             '[G]oto [R]eferences' },
-  { 'gI',         vim.lsp.buf.implementation,                                              '[G]oto [I]mplementation' },
-  { '<leader>D',  vim.lsp.buf.type_definition,                                             'Type [D]efinition' },
-  { '<leader>ds', require('telescope.builtin').lsp_document_symbols,                       '[D]ocument [S]ymbols' },
-  { '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,              '[W]orkspace [S]ymbols' },
+  { '<leader>rn', vim.lsp.buf.rename,                                                      'Rename' },
+  { '<leader>ca', vim.lsp.buf.code_action,                                                 'Code Action' },
+  { 'gd',         vim.lsp.buf.definition,                                                  'Goto Definition' },
+  { 'gD',         vim.lsp.buf.declaration,                                                 'Goto Declaration' },
+  { 'gI',         require('telescope.builtin').lsp_implementations,                        'Goto Implementation' },
+  { 'gr',         require('telescope.builtin').lsp_references,                             'Goto References' },
+  { 'gt',         require('telescope.builtin').lsp_type_definitions,                       'Goto Type Definition' },
+  { '<leader>ds', require('telescope.builtin').lsp_document_symbols,                       'Document Symbols' },
+  { '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,              'Workspace [S]ymbols' },
   { 'K',          vim.lsp.buf.hover,                                                       'Hover Documentation' },
   { '<C-k>',      vim.lsp.buf.signature_help,                                              'Signature Documentation' },
-  { 'gD',         vim.lsp.buf.declaration,                                                 '[G]oto [D]eclaration' },
-  { '<leader>wa', vim.lsp.buf.add_workspace_folder,                                        '[W]orkspace [A]dd Folder' },
-  { '<leader>wr', vim.lsp.buf.remove_workspace_folder,                                     '[W]orkspace [R]emove Folder' },
-  { '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, '[W]orkspace [L]ist Folders' },
+  { '<leader>wa', vim.lsp.buf.add_workspace_folder,                                        'Workspace [A]dd Folder' },
+  { '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'Workspace [L]ist Folders' },
+  { '<leader>wr', vim.lsp.buf.remove_workspace_folder,                                     'Workspace [R]emove Folder' },
 }
 
 function M.on_attach(_, bufnr)
