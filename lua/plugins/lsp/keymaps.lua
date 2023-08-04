@@ -28,7 +28,7 @@ local border = {
   { "│", "FloatBorder" },
 }
 
-function M.on_attach(_, bufnr)
+function M.on_attach(client, bufnr)
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
@@ -55,6 +55,7 @@ function M.on_attach(_, bufnr)
   documentation = {
     border = border,
   }
+  require("illuminate").on_attach(client)
 end
 
 return M
