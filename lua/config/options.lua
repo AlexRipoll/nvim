@@ -1,9 +1,3 @@
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 local opt = vim.opt
 
 opt.autoindent = true          -- copy indent from current line when starting new one
@@ -22,7 +16,7 @@ opt.hlsearch = true        -- Set highlight on search
 opt.ignorecase = true      -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.iskeyword:append("-")  -- consider string-string as whole word
-opt.laststatus = 0
+opt.laststatus = 3         -- only the last window will always have a status line
 opt.list = true            -- Show some invisible characters (tabs...
 opt.mouse = "a"            -- Enable mouse mode
 opt.number = true          -- Print line number

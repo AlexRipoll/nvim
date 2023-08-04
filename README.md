@@ -3,10 +3,8 @@ This is still a work in progress,  but it already has pretty much everything I n
 ## Pending
 
 - [ ] Illuminate highlight instead of underline
-- [ ] Fix Lualine from moving to Neotree buffer
 - [ ] Prevent CMP from overwriting
 - [ ] Add Which key keymaps
-- [ ] Open links from nvim
 - [ ] Lazy loading setup
 - [ ] Add debugger?
 - [ ] Fix Identline ">" bug/behavior

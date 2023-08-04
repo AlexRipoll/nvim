@@ -1,4 +1,8 @@
-require 'config.options'
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -19,6 +23,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup("plugins")
 
+local colorscheme = 'melange'
+require 'config.colorscheme'.set_colorscheme(colorscheme)
+
+require 'config.options'
 require 'config.keymaps'
 require 'config.autocmds'
 
@@ -26,7 +34,6 @@ require 'config.autocmds'
 pcall(require('telescope').load_extension, 'fzf')
 
 -- vim.g.material_style = "darker"
-vim.cmd.colorscheme 'melange'
 
 -- vim.g.material_style = "deep-ocean"
 -- -- The line beneath this is called `modeline`. See `:help modeline`
