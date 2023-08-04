@@ -163,4 +163,9 @@ return {
     },
   },
 
+  -- Multi Cursor
+  {
+    'mg979/vim-visual-multi'
+  },
+
 }
