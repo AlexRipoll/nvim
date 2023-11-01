@@ -11,23 +11,23 @@ map("i", "jk", "<ESC>")
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-map('n', '<leader>rrnn', '<cmd> set rnu! <CR>', { desc = 'toggle relative number' })
+-- map('n', '<leader>rrnn', '<cmd> set rnu! <CR>', { desc = 'toggle relative number' })
 map('n', ';', ':', { desc = 'enter command mode' })
 
 -- vertical movement
-map('n', '<C-u>', '<C-u>zz', { desc = 'scroll half page up and recenter' })
-map('n', '<C-d>', '<C-d>zz', { desc = 'scroll half page down and recenter' })
-map('n', '<C-f>', '<C-f>zz', { desc = 'scroll page forward and recenter' })
-map('n', '<C-b>', '<C-b>zz', { desc = 'scroll page backward and recenter' })
+map('n', '<C-u>', '<C-u>zz', { desc = 'Scroll half page up and recenter' })
+map('n', '<C-d>', '<C-d>zz', { desc = 'Scroll half page down and recenter' })
+map('n', '<C-f>', '<C-f>zz', { desc = 'Scroll page forward and recenter' })
+map('n', '<C-b>', '<C-b>zz', { desc = 'Scroll page backward and recenter' })
 
 -- tree explorer
-map('n', '<leader>e', ':Neotree toggle reveal<CR>', { desc = 'toggle tree explorer' })
-map('n', '<leader>n', ':Neotree reveal<CR>', { desc = 'reveal file in tree explorer' })
+map('n', '<leader>e', ':Neotree toggle reveal<CR>', { desc = 'Toggle tree explorer' })
+map('n', '<leader>n', ':Neotree reveal<CR>', { desc = 'Reveal file in tree explorer' })
 
 -- map('n', '<leader>gs', ':Neotree git_status float toggle<CR>', { desc = 'show git status' })
 
 -- window management
-map('n', '<leader>sx', ':close<CR>', { desc = 'close current split window' })
+map('n', '<leader>sx', ':close<CR>', { desc = 'Close current split window' })
 
 
 -- Move to window using the <ctrl> hjkl keys
@@ -43,10 +43,10 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window wi
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- navigate within insert mode
-map('i', '<C-h>', '<Left>', { desc = 'move left' })
-map('i', '<C-l>', '<Right>', { desc = 'move right' })
-map('i', '<C-j>', '<Down>', { desc = 'move down' })
-map('i', '<C-k>', '<Up>', { desc = 'move up' })
+map('i', '<C-h>', '<Left>', { desc = 'Move left' })
+map('i', '<C-l>', '<Right>', { desc = 'Move right' })
+map('i', '<C-j>', '<Down>', { desc = 'Move down' })
+map('i', '<C-k>', '<Up>', { desc = 'Move up' })
 
 
 -- map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
@@ -58,27 +58,26 @@ map({ "i", "n" }, "<Esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- save file
-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "save file" })
+map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- better indenting
-map("v", "<", "<gv", { desc = "indent to the left" })
-map("v", ">", ">gv", { desc = "indent to the right" })
+map("v", "<", "<gv", { desc = "Indent to the left" })
+map("v", ">", ">gv", { desc = "Indent to the right" })
 
 
 -- Copy all
-map('n', '<C-c>', '<cmd> %y+ <CR>', { desc = 'copy whole file' })
+map('n', '<C-c>', '<cmd> %y+ <CR>', { desc = 'Copy whole file' })
 
 
 --
 -- LSP
-map('n', '<leader>fm', vim.lsp.buf.format, { desc = "lsp formatting" })
+map('n', '<leader>fm', vim.lsp.buf.format, { desc = "LSP formatting" })
 
 
 
 --
 -- TELESCOPE
 -- See `:help telescope.builtin`
-map('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 map('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -87,14 +86,15 @@ map('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-map('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Search [D]iagnostics' })
-map('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search [F]iles' })
-map('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Search by [G]rep' })
-map('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Search [H]elp' })
-map('n', '<leader>fr', require('telescope.builtin').oldfiles, { desc = 'Search [R]ecently opened files' })
-map('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
+map('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
+map('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics' })
+map('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search files' })
+map('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Search by grep' })
+map('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Search help' })
+map('n', '<leader>fr', require('telescope.builtin').oldfiles, { desc = 'Search recently opened files' })
+map('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = 'Search current word' })
 map('n', '<leader>gc', require('telescope.builtin').git_commits, { desc = 'Search Git commits' })
-map('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+map('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search Git files' })
 map('n', '<leader>gs', require('telescope.builtin').git_status, { desc = 'Search Git files' })
 
 
@@ -129,7 +129,7 @@ function _G.set_terminal_keymaps()
   map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
   map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
   map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
-  map('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+  map('t', '<C-w>', [[<C-\><C-n><C-w>]], { desc = "Window" })
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
@@ -172,10 +172,10 @@ map('n', '<leader>x', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', { desc = "Order by number" })
+map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', { desc = "Order by directory" })
+map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', { desc = "Order by language" })
+map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', { desc = "Order by window number" })
 
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
@@ -185,14 +185,14 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 -- HARPOON keymaps
 --
 -- Mark file to revisit later
-map('n', '<leader>ha', '<Cmd>lua require("harpoon.mark").add_file()<CR>', opts)
+map('n', '<leader>ha', '<Cmd>lua require("harpoon.mark").add_file()<CR>', { desc = "Add new mark" })
 -- File navigation
-map('n', '<leader>hl', '<Cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
-map('n', '<A-1>', '<Cmd>lua require("harpoon.ui").nav_file(1)<CR>', opts)
-map('n', '<A-2>', '<Cmd>lua require("harpoon.ui").nav_file(2)<CR>', opts)
-map('n', '<A-3>', '<Cmd>lua require("harpoon.ui").nav_file(3)<CR>', opts)
-map('n', '<A-4>', '<Cmd>lua require("harpoon.ui").nav_file(4)<CR>', opts)
-map('n', '<A-n>', '<Cmd>lua require("harpoon.ui").nav_next()<CR>', opts)
+map('n', '<leader>hl', '<Cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', { desc = "List marks" })
+map('n', '<A-1>', '<Cmd>lua require("harpoon.ui").nav_file(1)<CR>', { desc = "Switch to harpoon mark 1" })
+map('n', '<A-2>', '<Cmd>lua require("harpoon.ui").nav_file(2)<CR>', { desc = "Switch to harpoon mark 2" })
+map('n', '<A-3>', '<Cmd>lua require("harpoon.ui").nav_file(3)<CR>', { desc = "Switch to harpoon mark 3" })
+map('n', '<A-4>', '<Cmd>lua require("harpoon.ui").nav_file(4)<CR>', { desc = "Switch to harpoon mark 4" })
+map('n', '<A-n>', '<Cmd>lua require("harpoon.ui").nav_next()<CR>', { desc = "Switch to next harpoon mark" })
 
 
 --
