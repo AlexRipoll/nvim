@@ -2,19 +2,19 @@ local M = {}
 
 local keymaps = {
   { '<leader>rn', vim.lsp.buf.rename,                                                      'Rename' },
-  { '<leader>ca', vim.lsp.buf.code_action,                                                 'Code Action' },
-  { 'gd',         vim.lsp.buf.definition,                                                  'Goto Definition' },
-  { 'gD',         vim.lsp.buf.declaration,                                                 'Goto Declaration' },
-  { 'gI',         require('telescope.builtin').lsp_implementations,                        'Goto Implementation' },
-  { 'gr',         require('telescope.builtin').lsp_references,                             'Goto References' },
-  { 'gt',         require('telescope.builtin').lsp_type_definitions,                       'Goto Type Definition' },
-  { '<leader>ds', require('telescope.builtin').lsp_document_symbols,                       'Document Symbols' },
-  { '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,              'Workspace [S]ymbols' },
-  { 'K',          vim.lsp.buf.hover,                                                       'Hover Documentation' },
-  { '<C-k>',      vim.lsp.buf.signature_help,                                              'Signature Documentation' },
-  { '<leader>wa', vim.lsp.buf.add_workspace_folder,                                        'Workspace [A]dd Folder' },
-  { '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'Workspace [L]ist Folders' },
-  { '<leader>wr', vim.lsp.buf.remove_workspace_folder,                                     'Workspace [R]emove Folder' },
+  { '<leader>ca', vim.lsp.buf.code_action,                                                 'Code action' },
+  { 'gd',         vim.lsp.buf.definition,                                                  'Goto definition' },
+  { 'gD',         vim.lsp.buf.declaration,                                                 'Goto declaration' },
+  { 'gI',         require('telescope.builtin').lsp_implementations,                        'Goto implementation' },
+  { 'gr',         require('telescope.builtin').lsp_references,                             'Goto references' },
+  { 'gt',         require('telescope.builtin').lsp_type_definitions,                       'Goto type definition' },
+  { '<leader>ds', require('telescope.builtin').lsp_document_symbols,                       'Document symbols' },
+  { '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,              'Workspace symbols' },
+  { 'K',          vim.lsp.buf.hover,                                                       'Hover documentation' },
+  { '<C-k>',      vim.lsp.buf.signature_help,                                              'Signature documentation' },
+  { '<leader>wa', vim.lsp.buf.add_workspace_folder,                                        'Workspace add folder' },
+  { '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'Workspace list folders' },
+  { '<leader>wr', vim.lsp.buf.remove_workspace_folder,                                     'Workspace remove folder' },
 }
 
 local border = {
