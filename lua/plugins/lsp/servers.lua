@@ -2,7 +2,15 @@ local M = {}
 
 M.servers = {
   -- clangd = {},
-  gopls = {},
+  gopls = {
+    -- analyses = {
+    --   unusedparams = true,
+    -- },
+    completeUnimported = true,
+    gofumpt = true,
+    staticcheck = true,
+    usePlaceholders = true,
+  },
   -- pyright = {},
   rust_analyzer = {
     cargo = {
