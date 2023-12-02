@@ -72,6 +72,7 @@ map('n', '<C-c>', '<cmd> %y+ <CR>', { desc = 'Copy whole file' })
 --
 -- LSP
 map('n', '<leader>fm', vim.lsp.buf.format, { desc = "LSP formatting" })
+map('n', '<leader>rs', ':LspRestart<CR>', { desc = "LSP restart" })
 
 
 
@@ -228,3 +229,9 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 -- GLOW keymaps
 --
 map('n', '<leader>p', '<Cmd>Glow<CR>', { desc = 'preview markdown in current buffer' })
+
+
+--
+-- Gopher keymaps
+--
+map('n', '<leader>lge', '<Cmd>GoIfErr<CR>', { desc = 'generate error handling' })

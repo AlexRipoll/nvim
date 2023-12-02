@@ -41,9 +41,9 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-buffer",       --recommends text that is in the current buffer
+      "hrsh7th/cmp-path",         --recommends file system paths
+      "saadparwaiz1/cmp_luasnip", --completion source for snippets
     },
     opts = function()
       local kind_icons = {
@@ -92,6 +92,7 @@ return {
           ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-e>'] = cmp.mapping.abort(),
           ['<C-Space>'] = cmp.mapping.complete {},
           ['<CR>'] = cmp.mapping.confirm {
             -- could be Insert or Replace
@@ -167,6 +168,18 @@ return {
   -- Multi Cursor
   {
     'mg979/vim-visual-multi'
+  },
+
+  -- Minimalistic plugin for Go development
+  {
+    'olexsmir/gopher.nvim',
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
   },
 
 }
