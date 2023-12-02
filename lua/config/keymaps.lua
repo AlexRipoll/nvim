@@ -11,9 +11,6 @@ map("i", "jk", "<ESC>")
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- map('n', '<leader>rrnn', '<cmd> set rnu! <CR>', { desc = 'toggle relative number' })
-map('n', ';', ':', { desc = 'enter command mode' })
-
 -- vertical movement
 map('n', '<C-u>', '<C-u>zz', { desc = 'Scroll half page up and recenter' })
 map('n', '<C-d>', '<C-d>zz', { desc = 'Scroll half page down and recenter' })
