@@ -1,0 +1,6 @@
+--
+-- Harpoon
+--
+return {
+  'ThePrimeagen/harpoon',
+}
