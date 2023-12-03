@@ -41,9 +41,11 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",       --recommends text that is in the current buffer
-      "hrsh7th/cmp-path",         --recommends file system paths
-      "saadparwaiz1/cmp_luasnip", --completion source for snippets
+      "hrsh7th/cmp-buffer",           --recommends text that is in the current buffer
+      "hrsh7th/cmp-path",             --recommends file system paths
+      "saadparwaiz1/cmp_luasnip",     --completion source for snippets
+      "rafamadriz/friendly-snippets", --adds useful snippets
+      "L3MON4D3/LuaSnip",             -- snippet engine & its associated nvim-cmp source
     },
     opts = function()
       local kind_icons = {
@@ -151,7 +153,9 @@ return {
   -- Comment Code
   {
     'numToStr/Comment.nvim',
-    opts = {}
+    event = { "BufReadPre", "BufNewFile" },
+    config = true, -- runs require('Comment').setup()
+    opts = {},
   },
 
   -- Indentation guides
