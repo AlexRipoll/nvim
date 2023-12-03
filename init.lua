@@ -21,7 +21,15 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup("plugins")
+require('lazy').setup("plugins", {
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
 
 local colorscheme = 'melange'
 require 'config.colorscheme'.set_colorscheme(colorscheme)
@@ -30,8 +38,6 @@ require 'config.options'
 require 'config.keymaps'
 require 'config.autocmds'
 
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
 
 -- vim.g.material_style = "darker"
 
