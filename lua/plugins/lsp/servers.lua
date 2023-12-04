@@ -1,7 +1,7 @@
 local M = {}
 
 M.servers = {
-  -- clangd = {},
+  -- LSPs
   gopls = {
     -- analyses = {
     --   unusedparams = true,
@@ -11,7 +11,6 @@ M.servers = {
     staticcheck = true,
     usePlaceholders = true,
   },
-  -- pyright = {},
   rust_analyzer = {
     cargo = {
       allFeatures = true,

@@ -65,13 +65,17 @@ map("v", ">", ">gv", { desc = "Indent to the right" })
 -- Copy all
 map('n', '<C-c>', '<cmd> %y+ <CR>', { desc = 'Copy whole file' })
 
-
 --
 -- LSP
-map('n', '<leader>fm', vim.lsp.buf.format, { desc = "LSP formatting" })
+-- map('n', '<leader>fm', vim.lsp.buf.format, { desc = "LSP formatting" })
+map({ "n", "v" }, "<leader>fm", function()
+  require('conform').format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 1000,
+  })
+end, { desc = "Format file or range (in visual mode)" })
 map('n', '<leader>rs', ':LspRestart<CR>', { desc = "LSP restart" })
-
-
 
 --
 -- TELESCOPE
@@ -231,4 +235,4 @@ map('n', '<leader>p', '<Cmd>Glow<CR>', { desc = 'preview markdown in current buf
 --
 -- Gopher keymaps
 --
-map('n', '<leader>lge', '<Cmd>GoIfErr<CR>', { desc = 'generate error handling' })
+map('n', '<leader>ce', '<Cmd>GoIfErr<CR>', { desc = 'generate error handling' })
