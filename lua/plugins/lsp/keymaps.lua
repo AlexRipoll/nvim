@@ -11,7 +11,7 @@ local keymaps = {
   { '<leader>ds', require('telescope.builtin').lsp_document_symbols,                       'Document symbols' },
   { '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,              'Workspace symbols' },
   { 'K',          vim.lsp.buf.hover,                                                       'Hover documentation' },
-  { '<C-k>',      vim.lsp.buf.signature_help,                                              'Signature documentation' },
+  { 'H',          vim.lsp.buf.signature_help,                                              'Signature documentation' },
   { '<leader>wa', vim.lsp.buf.add_workspace_folder,                                        'Workspace add folder' },
   { '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'Workspace list folders' },
   { '<leader>wr', vim.lsp.buf.remove_workspace_folder,                                     'Workspace remove folder' },
