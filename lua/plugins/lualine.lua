@@ -7,11 +7,69 @@ return {
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+    -- Color table for highlights
+    -- stylua: ignore
+    local colors = {
+      yellow    = '#ECBE7B',
+      green     = '#98be65',
+      orange    = '#ff9e64',
+      violet    = '#a9a1e1',
+      blue      = '#83a598',
+      red       = '#fb4934',
+      white     = '#ebdbb2',
+      gray      = '#a89984',
+      lightgray = '#504945',
+      darkgray  = '#333333',
+      black     = '#262626',
+    }
 
     lualine.setup({
       options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = {
+          normal = {
+            a = { bg = colors.orange, fg = colors.black, gui = 'bold' },
+            b = { bg = colors.darkgray, fg = colors.orange },
+            c = { bg = colors.darkgray, fg = colors.gray },
+            y = { bg = colors.lightgray, fg = colors.white },
+            z = { bg = colors.lightgray, fg = colors.white }
+          },
+          insert = {
+            a = { bg = colors.gray, fg = colors.black, gui = 'bold' },
+            b = { bg = colors.darkgray, fg = colors.orange },
+            c = { bg = colors.darkgray, fg = colors.gray },
+            y = { bg = colors.lightgray, fg = colors.white },
+            z = { bg = colors.lightgray, fg = colors.white }
+          },
+          visual = {
+            a = { bg = colors.yellow, fg = colors.black, gui = 'bold' },
+            b = { bg = colors.darkgray, fg = colors.orange },
+            c = { bg = colors.darkgray, fg = colors.gray },
+            y = { bg = colors.lightgray, fg = colors.white },
+            z = { bg = colors.lightgray, fg = colors.white }
+          },
+          replace = {
+            a = { bg = colors.red, fg = colors.black, gui = 'bold' },
+            b = { bg = colors.darkgray, fg = colors.orange },
+            c = { bg = colors.darkgray, fg = colors.gray },
+            y = { bg = colors.lightgray, fg = colors.white },
+            z = { bg = colors.lightgray, fg = colors.white }
+          },
+          command = {
+            a = { bg = colors.blue, fg = colors.black, gui = 'bold' },
+            b = { bg = colors.darkgray, fg = colors.orange },
+            c = { bg = colors.darkgray, fg = colors.gray },
+            y = { bg = colors.lightgray, fg = colors.white },
+            z = { bg = colors.lightgray, fg = colors.white }
+          },
+          inactive = {
+            a = { bg = colors.gray, fg = colors.black, gui = 'bold' },
+            b = { bg = colors.darkgray, fg = colors.orange },
+            c = { bg = colors.darkgray, fg = colors.gray },
+            y = { bg = colors.lightgray, fg = colors.white },
+            z = { bg = colors.lightgray, fg = colors.white }
+          }
+        },
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
@@ -36,7 +94,7 @@ return {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
+            color = { fg = colors.orange },
           },
           { "encoding" },
           { "fileformat" },

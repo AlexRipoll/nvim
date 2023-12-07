@@ -61,6 +61,7 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("v", "<", "<gv", { desc = "Indent to the left" })
 map("v", ">", ">gv", { desc = "Indent to the right" })
 
+map('n', '<C-i>', '<C-i>', { desc = 'Jump forward' })
 
 -- Copy all
 map('n', '<C-c>', '<cmd> %y+ <CR>', { desc = 'Copy whole file' })
