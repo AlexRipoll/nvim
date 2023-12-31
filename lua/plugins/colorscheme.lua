@@ -8,19 +8,28 @@ return {
   },
 
   {
-    -- Theme inspired by Atom
+    -- bluish color scheme
+    "cocopon/iceberg.vim",
+    priority = 1000,
+  },
+
+  {
     "romainl/Apprentice",
     priority = 1000,
   },
 
   {
-    -- Theme inspired by Atom
     "rose-pine/neovim",
     priority = 1000,
+    -- config = function()
+    --   require('rose-pine').setup({
+    --     disable_background = true,
+    --     disable_float_background = true,
+    --   })
+    -- end
   },
 
   {
-    -- Theme inspired by Atom
     "Mofiqul/dracula.nvim",
     priority = 1000,
   },
@@ -32,9 +41,15 @@ return {
   },
 
   {
-    -- Theme inspired by Atom
     "EdenEast/nightfox.nvim",
     priority = 1000,
+    config = function()
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+        },
+      })
+    end,
   },
 
   {
@@ -92,12 +107,12 @@ return {
     opts = {
 
       contrast = {
-        terminal = true,         -- Enable contrast for the built-in terminal
-        sidebars = true,         -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-        floating_windows = true, -- Enable contrast for floating windows
-        cursor_line = false,     -- Enable darker background for the cursor line
+        terminal = true,             -- Enable contrast for the built-in terminal
+        sidebars = true,             -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+        floating_windows = true,     -- Enable contrast for floating windows
+        cursor_line = false,         -- Enable darker background for the cursor line
         non_current_windows = false, -- Enable darker background for non-current windows
-        filetypes = {},          -- Specify which filetypes get the contrasted (darker) background
+        filetypes = {},              -- Specify which filetypes get the contrasted (darker) background
       },
 
       styles = { -- Give comments style such as bold, italic, underline etc.
@@ -136,20 +151,20 @@ return {
 
       disable = {
         colored_cursor = false, -- Disable the colored cursor
-        borders = false,    -- Disable borders between verticaly split windows
-        background = false, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-        term_colors = false, -- Prevent the theme from setting terminal colors
-        eob_lines = true,   -- Hide the end-of-buffer lines
+        borders = false,        -- Disable borders between verticaly split windows
+        background = false,     -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+        term_colors = false,    -- Prevent the theme from setting terminal colors
+        eob_lines = true,       -- Hide the end-of-buffer lines
       },
 
       high_visibility = {
         lighter = false, -- Enable higher contrast text for lighter style
-        darker = false, -- Enable higher contrast text for darker style
+        darker = false,  -- Enable higher contrast text for darker style
       },
 
       lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
 
-      async_loading = true,   -- Load parts of the theme asyncronously for faster startup (turned on by default)
+      async_loading = true,      -- Load parts of the theme asyncronously for faster startup (turned on by default)
 
       custom_colors = function(colors)
         -- colors.editor.bg = "#SOME_COLOR"
