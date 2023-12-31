@@ -30,7 +30,8 @@ return {
 
       -- You can provide the debuggers for the langs you want
       ensure_installed = {
-        'delve', -- Go
+        'delve',   -- Go
+        'codelldb' -- Rust
       },
     }
 
@@ -70,6 +71,31 @@ return {
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    -- Rust config
+    dap.adapters.codelldb = {
+      type = 'server',
+      port = "${port}",
+      executable = {
+        -- Change this to your path!
+        command = vim.fn.expand('$HOME') .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb',
+        args = { "--port", "${port}" },
+      }
+    }
+
+    dap.configurations.rust = {
+      {
+        name = "Rust debug",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+          vim.fn.jobstart('cargo build')
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+      },
+    }
 
     -- Install golang specific config
     require('dap-go').setup()
