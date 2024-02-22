@@ -17,15 +17,15 @@ M.servers = {
       loadOutDirsFromCheck = true,
       runBuildScripts = true,
     },
-    -- Add clippy lints for Rust.
-    checkOnSave = {
-      allFeatures = true,
-      command = "clippy",
-      extraArgs = { "--no-deps" },
-    },
-    files = {
-      watcher = "server",
-    },
+    -- -- Add clippy lints for Rust.
+    -- checkOnSave = {
+    --   allFeatures = true,
+    --   command = "clippy",
+    --   extraArgs = { "--no-deps" },
+    -- },
+    -- files = {
+    --   watcher = "server",
+    -- },
     procMacro = {
       enable = true,
       ignored = {
